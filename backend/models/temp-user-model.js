@@ -15,6 +15,9 @@ const tempUserSchema = new mongoose.Schema({
         default: Date.now, 
         expires: 300 
     } 
+}, {
+    timestamps: true,
+    versionKey: false
 });
 
 module.exports = mongoose.model("TempUser", tempUserSchema);

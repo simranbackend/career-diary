@@ -1,27 +1,101 @@
 <div class="left-side-bar">
-		<div class="brand-logo" style="margin: 10px 0;">
-			<a href="">
-				<img src="/vendors/images/career-diary-logo-white.png" alt="" class="dark-logo">
-				<img src="/vendors/images/career-diary-logo-white.png" alt="" class="light-logo">
-			</a>
-			<div class="close-sidebar" data-toggle="left-sidebar-close">
-				<i class="ion-close-round"></i>
-			</div>
-		</div>
-		<div class="menu-block customscroll">
-			<div class="sidebar-menu">
-				<ul id="accordion-menu">
-					<li class="dropdown">
-						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
-						</a>
-						<ul class="submenu">
-							<li><a href="index.html">Dashboard style 1</a></li>
-							<li><a href="index2.html">Dashboard style 2</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	
+  <div class="brand-logo" style="margin: 10px 0">
+    <a href="">
+      <img src="./vendors/images/career-diary-logo-white.png" alt="" class="dark-logo" />
+      <img src="./vendors/images/career-diary-logo-white.png" alt="" class="light-logo" />
+    </a>
+    <div class="close-sidebar" data-toggle="left-sidebar-close">
+      <i class="ion-close-round"></i>
+    </div>
+  </div>
+  <div class="menu-block customscroll">
+    <div class="sidebar-menu">
+      <ul id="accordion-menu">
+        <!-- Dashboard -->
+        <li class="dropdown">
+          <a routerLink="/dashboard" routerLinkActive="active" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-analytics-3"></span>
+            <span class="mtext">Dashboard</span>
+          </a>	
+        </li>
+
+        <!-- Add Company -->
+        <li class="dropdown">
+          <a routerLink="/add-company" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-building"></span>
+            <span class="mtext">Add Company</span>
+          </a>
+        </li>
+
+        <!-- View Companies -->
+        <li class="dropdown">
+          <a routerLink="/view-companies" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-notepad-1"></span>
+            <span class="mtext">View Companies</span>
+          </a>
+        </li>
+
+        <!-- Applied -->
+        <li class="dropdown">
+          <a href="applied.html" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-briefcase"></span>
+            <span class="mtext">Applied</span>
+          </a>
+        </li>
+
+        <!-- Shortlisted -->
+        <li class="dropdown">
+          <a href="shortlisted.html" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-check"></span>
+            <span class="mtext">Shortlisted</span>
+          </a>
+        </li>
+
+        <!-- Interviews -->
+        <li class="dropdown">
+          <a href="interviews.html" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-chat-12"></span>
+            <span class="mtext">Interviews</span>
+          </a>
+        </li>
+
+        <!-- Offers -->
+        <li class="dropdown">
+          <a href="offers.html" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-like"></span>
+            <span class="mtext">Offers</span>
+          </a>
+        </li>
+
+        <!-- Rejections -->
+        <li class="dropdown">
+          <a href="rejections.html" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-delete-3"></span>
+            <span class="mtext">Rejections</span>
+          </a>
+        </li>
+
+        <li class="dropdown">
+          <a href="profile.html" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-user-1"></span><span class="mtext">My Profile</span>
+          </a>
+        </li>
+
+        <!-- Settings -->
+        <li class="dropdown">
+          <a href="settings.html" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-settings2"></span><span class="mtext">Settings</span>
+          </a>
+        </li>
+
+        <li class="dropdown">
+          <a (click)="logout()" class="dropdown-toggle no-arrow">
+            <span class="micon dw dw-logout"></span>
+            <span class="mtext">Logout</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>

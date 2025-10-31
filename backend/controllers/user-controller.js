@@ -47,3 +47,14 @@ exports.login = async (req, res) => {
         })
     }
 }
+
+exports.logout = async (req, res) => {
+    try {
+        let data = await userService.logout(req);
+        if (data.status) return res.status(200).json(data);
+        return res.status(400).json(data);
+    } catch (error) {
+        console.log('logout Error', error);
+        return res.status(500).json({ status: false, message: 'Internal Server Error' });
+    }
+}

@@ -43,6 +43,8 @@ exports.sendOtp = async (req) => {
 
 exports.login = async (req) => {
   try {
+    console.log(req.body, "rerrrrrrrr");
+    
     const { mobile, otp } = req.body;
 
     if (!mobile || !otp) {
@@ -60,6 +62,13 @@ exports.login = async (req) => {
       }
 
       const token = generateToken(user);
+        // Save token to user for server-side validation / logout
+        try {
+          user.token = token;
+          await user.save();
+        } catch (e) {
+          console.error('Failed to save token to user', e);
+        }
       return {
         status: true,
         message: "Login successful.",
@@ -78,6 +87,13 @@ exports.login = async (req) => {
     await TempUser.deleteOne({ mobile });
 
     const token = generateToken(user);
+    // Save token to new user
+    try {
+      user.token = token;
+      await user.save();
+    } catch (e) {
+      console.error('Failed to save token to new user', e);
+    }
 
     return {
       status: true,
@@ -91,5 +107,19 @@ exports.login = async (req) => {
       status: false,
       message: "Something went wrong! Please try again later.",
     };
+  }
+};
+
+exports.logout = async (req) => {
+  try {
+    const userId = req.user && req.user.id;
+    if (!userId) return { status: false, message: 'Not authenticated' };
+
+    await User.findByIdAndUpdate(userId, { $unset: { token: 1 } });
+
+    return { status: true, message: 'Logged out successfully.' };
+  } catch (error) {
+    console.error('Error in logout', error);
+    return { status: false, message: 'Something went wrong. Please try again.' };
   }
 };

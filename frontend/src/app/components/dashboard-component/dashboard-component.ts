@@ -4,6 +4,7 @@ import { LeftSidebar } from '../left-sidebar/left-sidebar';
 
 @Component({
   selector: 'app-dashboard-component',
+  standalone: true,
   imports: [HeaderComponent, LeftSidebar],
   templateUrl: './dashboard-component.html',
   styleUrl: './dashboard-component.css'

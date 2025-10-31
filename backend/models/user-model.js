@@ -12,6 +12,14 @@ const userSchema = new mongoose.Schema({
     email: { 
         type: String 
     }
+    ,
+    token: {
+        type: String,
+        default: null
+    }
+}, {
+    timestamps: true,
+    versionKey: false
 });
 
 module.exports = mongoose.model("User", userSchema);
